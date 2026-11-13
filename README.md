@@ -48,3 +48,7 @@ The web root should point to the `public/` directory. The `public/inc/.htaccess`
 ## Optional logo
 
 The app ships without a logo. If you want to add one, place an SVG or other web image under `public/assets/img/` and update the header markup in `public/index.php` to reference it.
+
+## License
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE).
