@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@source "../public/**/*.{php,js}";
+
+@theme {
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI Variable Text", "Segoe UI", "Helvetica Neue", Roboto, Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", "JetBrains Mono", Menlo, Consolas, monospace;
+
+  --color-brand-400: #3eb4e7;
+  --color-brand-500: #2b8fd1;
+}
+
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--color-brand-400);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .card {
+    @apply flex flex-col rounded-2xl border border-white/[0.06] bg-[#2c2c2e] p-5 sm:p-6 min-h-[498px] md:h-[498px] min-w-0 w-full;
+  }
+  .card-sm {
+    @apply min-h-[239px] md:h-[239px];
+  }
+  .panel-slot {
+    @apply mt-auto flex grow flex-col justify-end pt-3 sm:pt-4 min-w-0;
+  }
+  .panel {
+    @apply min-h-[148px] grow rounded-xl bg-[#1c1c1e] p-3.5 sm:p-4 flex flex-col justify-center min-w-0;
+  }
+  .card-title {
+    @apply text-lg font-semibold text-white;
+  }
+  .card-desc {
+    @apply mt-1 text-sm text-zinc-400;
+  }
+
+  .field {
+    @apply h-11 w-full rounded-xl border border-white/10 bg-[#1c1c1e] px-3.5 font-mono text-[15px] text-white placeholder:text-zinc-600 transition outline-none focus:border-brand-400/70;
+  }
+
+  .btn {
+    @apply inline-flex h-11 cursor-pointer items-center justify-center gap-2 rounded-xl px-4 text-sm font-medium transition disabled:cursor-wait disabled:opacity-60;
+  }
+  .btn-primary {
+    @apply bg-brand-500 text-white hover:bg-brand-400;
+  }
+  .btn-secondary {
+    @apply h-9 bg-white/[0.08] text-zinc-200 hover:bg-white/15;
+  }
+
+  .chip {
+    @apply inline-flex h-8 cursor-pointer items-center rounded-lg bg-white/[0.08] px-2.5 sm:px-3 text-[13px] sm:text-sm font-medium text-zinc-200 transition hover:bg-white/15 hover:text-white shrink-0 whitespace-nowrap;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .icon-btn {
+    @apply inline-flex size-8 cursor-pointer items-center justify-center rounded-lg text-zinc-400 transition hover:bg-white/10 hover:text-white;
+  }
+
+  .clear-btn {
+    @apply inline-flex size-6 cursor-pointer items-center justify-center rounded-md text-zinc-500 transition hover:bg-white/10 hover:text-zinc-200;
+  }
+
+  .toast {
+    @apply pointer-events-none fixed bottom-6 left-1/2 z-50 -translate-x-1/2 rounded-lg border border-white/10 bg-[#3a3a3c] px-4 py-2 text-sm text-white opacity-0 transition duration-200;
+  }
+  .toast.is-visible {
+    @apply opacity-100;
+  }
+
+  .spinner {
+    @apply inline-block size-4 animate-spin rounded-full border-2 border-white/20 border-t-white;
+  }
+}
+
+@media (min-width: 1750px) {
+  .wide-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .wide-main {
+    max-width: 1880px;
+  }
+}
